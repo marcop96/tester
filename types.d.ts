@@ -10,4 +10,5 @@ export interface Item {
   price: number;
   quantity?: number;
   exp?: number;
+  difficulty?: number;
 }
