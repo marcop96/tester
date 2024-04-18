@@ -71,18 +71,22 @@ async function runProgress(log: Item, duration = 1000) {
 
 <template>
   <div class="p-4 mx-auto">
-    <div class="p-4">
+    <div class="p-4 flex justify-center">
       <!-- Display the progress bar for progress.one -->
-      <Progress v-model="progress.one" class="w-3/5 h-10" />
+      <Progress v-model="progress.one" class="w-4/5 h-10" />
     </div>
     <div class="p-4"></div>
 
-    <div class="p-4">
-      <li v-for="log in logs" :key="log.id">
-        <button @click="runProgress(log, 400)" :disabled="isChopping">
-          {{ log }}
-        </button>
-      </li>
+    <div class="grid grid-cols-5 p-4">
+      <button
+        v-for="log in logs"
+        :key="log.id"
+        class="bg-gray-400 rounded-sm gap-4 m-2 w-32 h-32"
+        @click="runProgress(log, 400)"
+        :disabled="isChopping"
+      >
+        {{ log.name }}
+      </button>
     </div>
   </div>
   <div>Gold: {{ gold }}</div>
