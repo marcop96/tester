@@ -12,3 +12,13 @@ export interface Item {
   exp?: number;
   difficulty?: number;
 }
+
+export interface Skills {
+  [key: string]: Skill;
+}
+
+export interface Skill {
+  id: number;
+  level: number;
+  exp: number;
+}
