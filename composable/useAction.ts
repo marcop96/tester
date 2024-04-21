@@ -7,9 +7,10 @@ const {
   removeItemFromInventory,
   itemCount,
 } = useInventory();
+
 export default function useAction() {
   let isChopping = false;
-
+  const progress = ref(0);
   async function runAction(log: Item, duration = 1000) {
     // If already chopping, return
     if (isChopping) return;
@@ -17,17 +18,17 @@ export default function useAction() {
 
     let currentProgress = 0;
     // Check if the player has an axe in the inventory
-    console.log();
+
     if (checkForItemType("axe")) {
       const interval = setInterval(() => {
         currentProgress += 1;
         if (currentProgress <= 100) {
           // Update the progress value
-          // progress.one = currentProgress;
+          progress.value = currentProgress;
         } else {
           clearInterval(interval);
           // Reset the progress value
-          // progress.one = 0;
+          progress.value = 0;
           isChopping = false;
           // Find the selected wood item in the inventory
           const logItem = inventory.value.find(
@@ -48,7 +49,6 @@ export default function useAction() {
     } else {
       console.error("You need a bronze axe or better to cut down a log.");
     }
-    console.log(inventory.value);
   }
-  return { runAction, inventory };
+  return { runAction, inventory, progress };
 }
