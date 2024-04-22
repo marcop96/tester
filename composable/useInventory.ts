@@ -1,12 +1,5 @@
 import type { Item } from "../types.d.ts";
 
-/*
-maybe in the future separate inventory from toolbelt? and auto assign tools
-to toolbelt when bought, then just use the better tool in the toolbelt OR equip the corresponding
-tool intended to use, that could speed up the Tool check, will loop only between tools instead of 
-all items in the inventory
-*/
-
 export const useInventory = () => {
   const inventory = ref<Item[]>([
     {
@@ -18,7 +11,10 @@ export const useInventory = () => {
     },
   ]);
   const addItemToInventory = (item: Item) => {
-    inventory.value.push(item);
+    inventory.value.push({
+      ...item,
+      quantity: 1,
+    });
   };
   const checkForItemType = (itemType: string) => {
     return inventory.value.some((i) => i.type === itemType);

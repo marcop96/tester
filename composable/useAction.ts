@@ -39,10 +39,7 @@ export default function useAction() {
             logItem.quantity += 1;
           } else {
             // Add the selected wood item to the inventory
-            inventory.value.push({
-              ...log,
-              quantity: 1,
-            });
+            addItemToInventory(log);
           }
         }
       }, duration / 100);
