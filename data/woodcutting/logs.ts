@@ -4,7 +4,7 @@ const logs: Item[] = [
     id: 100,
     price: 4,
     type: "log",
-    difficulty: 2,
+    difficulty: 2000,
     name: "Normal Log",
     exp: 25,
   },
