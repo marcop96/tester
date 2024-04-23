@@ -4,6 +4,7 @@ import { useInventory } from "./composable/useInventory";
 import type { Item } from "./types";
 import logs from "./data/woodcutting/logs";
 import useAction from "./composable/useAction";
+import InfoActionButton from "./components/ui/InfoActionButton.vue";
 const { addItemToInventory, removeItemFromInventory, itemCount } =
   useInventory();
 const { inventory, progress, runAction } = useAction();
@@ -20,11 +21,17 @@ const { inventory, progress, runAction } = useAction();
       <button
         v-for="log in logs"
         :key="log.id"
-        class="bg-gray-400 rounded-sm gap-4 m-2 w-32 h-32"
+        class="bg-gray-400 rounded-sm gap-4 m-2 w-48 h-48"
         @click="runAction(log, log.difficulty)"
       >
         {{ log.name }}
       </button>
+      <InfoActionButton
+        v-for="log in logs"
+        :key="log.id"
+        action="chop"
+        :item="log"
+      ></InfoActionButton>
     </div>
   </div>
   <div>itemcount: {{ itemCount }}</div>
