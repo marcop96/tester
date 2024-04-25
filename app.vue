@@ -7,7 +7,7 @@ import useAction from "./composable/useAction";
 import InfoActionButton from "./components/ui/InfoActionButton.vue";
 const { addItemToInventory, removeItemFromInventory, itemCount } =
   useInventory();
-const { inventory, progress, runAction } = useAction();
+const { runAction, inventory, progress, activeItem } = useAction();
 </script>
 
 <template>
@@ -17,24 +17,17 @@ const { inventory, progress, runAction } = useAction();
       <Progress v-model="progress" class="w-4/5 h-10" />
     </div>
 
-    <div class="grid grid-cols-5 p-4">
-      <button
-        v-for="log in logs"
-        :key="log.id"
-        class="bg-gray-400 rounded-sm gap-4 m-2 w-48 h-48"
-        @click="runAction(log, log.difficulty)"
-      >
-        {{ log.name }}
-      </button>
+    <div class="grid grid-cols-2 p-4">
       <InfoActionButton
         v-for="log in logs"
         :key="log.id"
         action="chop"
         :item="log"
+        :activeItem="activeItem"
+        @click="runAction(log)"
       ></InfoActionButton>
     </div>
   </div>
-  <div>itemcount: {{ itemCount }}</div>
   <div>
     Inventory:
     <ul>
