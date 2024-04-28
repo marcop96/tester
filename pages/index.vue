@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { Progress } from "@/components/ui/progress";
-import { useInventory } from "./composable/useInventory";
-import type { Item } from "./types";
-import logs from "./data/woodcutting/logs";
-import useAction from "./composable/useAction";
-import InfoActionButton from "./components/ui/InfoActionButton.vue";
+import { Progress } from "../components/ui/progress";
+import { useInventory } from "../composable/useInventory";
+import type { Item } from "../types";
+import logs from "../data/woodcutting/logs";
+import useAction from "../composable/useAction";
+import InfoActionButton from "../components/ui/InfoActionButton.vue";
 const { addItemToInventory, removeItemFromInventory, itemCount } =
   useInventory();
 const { runAction, inventory, progress, activeItem } = useAction();
