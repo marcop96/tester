@@ -1,0 +1,110 @@
+[
+  {
+    "id": 100,
+    "price": 4,
+    "type": "log",
+    "difficulty": 2000,
+    "name": "Normal Log",
+    "exp": 25,
+    "skill": "woodcutting"
+  },
+  {
+    "id": 101,
+    "price": 4,
+    "type": "log",
+    "difficulty": 2,
+    "name": "Oak Log",
+    "exp": 25,
+    "skill": "woodcutting"
+  },
+  {
+    "id": 102,
+    "price": 4,
+    "type": "log",
+    "difficulty": 2,
+    "name": "Willow Log",
+    "exp": 45,
+    "skill": "woodcutting"
+  },
+  {
+    "id": 103,
+    "price": 4,
+    "type": "log",
+    "difficulty": 2,
+    "name": "Maple Log",
+    "exp": 65,
+    "skill": "woodcutting"
+  },
+  {
+    "id": 104,
+    "price": 4,
+    "type": "log",
+    "difficulty": 2,
+    "name": "Yew Log",
+    "exp": 85,
+    "skill": "woodcutting"
+  },
+  {
+    "id": 105,
+    "price": 4,
+    "type": "log",
+    "difficulty": 2,
+    "name": "Magic Log",
+    "exp": 105,
+    "skill": "woodcutting"
+  },
+  {
+    "id": 200,
+    "price": 4,
+    "type": "ore",
+    "difficulty": 2000,
+    "name": "tin ore",
+    "exp": 25,
+    "skill": "mining"
+  },
+  {
+    "id": 201,
+    "price": 4,
+    "type": "ore",
+    "difficulty": 2,
+    "name": "copper ore",
+    "exp": 25,
+    "skill": "mining"
+  },
+  {
+    "id": 202,
+    "price": 4,
+    "type": "ore",
+    "difficulty": 2,
+    "name": "iron ore",
+    "exp": 45,
+    "skill": "mining"
+  },
+  {
+    "id": 203,
+    "price": 4,
+    "type": "ore",
+    "difficulty": 2,
+    "name": "coal",
+    "exp": 65,
+    "skill": "mining"
+  },
+  {
+    "id": 204,
+    "price": 4,
+    "type": "ore",
+    "difficulty": 2,
+    "name": "mithril ore",
+    "exp": 85,
+    "skill": "mining"
+  },
+  {
+    "id": 205,
+    "price": 4,
+    "type": "ore",
+    "difficulty": 2,
+    "name": "adamant ore",
+    "exp": 105,
+    "skill": "mining"
+  }
+]
