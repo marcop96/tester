@@ -8,17 +8,17 @@ export interface Item {
   name: string;
   type: string;
   price: number;
+  skill: SkillName;
   quantity?: number;
   exp?: number;
   difficulty?: number;
 }
 
 export interface Skills {
-  [key: string]: Skill;
+  [key: SkillName]: SkillProperties;
 }
 
-export interface Skill {
+export interface SkillProperties {
   id: number;
-  level: number;
-  exp: number;
 }
+export type SkillName = "woodcutting" | "mining" | "smithing";
