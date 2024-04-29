@@ -1,7 +1,7 @@
 import { ref } from "vue";
 import type { Skill } from "../types.d.ts";
 
-export default function useSkills() {
+export const useSkillsStore = defineStore("skills", () => {
   const skills = ref<Record<string, Skill>>({
     woodcutting: {
       id: 1,
@@ -20,8 +20,14 @@ export default function useSkills() {
     },
   });
 
-  const activeSkill = ref("mining");
+  const changeActiveSkill = (skill: string) => {
+    activeSkill.value = skill;
 
+    console.log("Active skill changed to: ", activeSkill.value);
+  };
+
+  const activeSkill = ref("mining");
   const skillNames = Object.keys(skills.value);
-  return { skills, skillNames, activeSkill };
-}
+
+  return { skills, skillNames, activeSkill, changeActiveSkill };
+});
