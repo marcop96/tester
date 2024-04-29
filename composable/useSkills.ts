@@ -1,8 +1,8 @@
 import { ref } from "vue";
-import type { Skill } from "../types.d.ts";
+import type { Skills } from "../types.d.ts";
 
 export const useSkillsStore = defineStore("skills", () => {
-  const skills = ref<Record<string, Skill>>({
+  const skills = ref<Skills>({
     woodcutting: {
       id: 1,
       level: 1,
@@ -26,7 +26,7 @@ export const useSkillsStore = defineStore("skills", () => {
     console.log("Active skill changed to: ", activeSkill.value);
   };
 
-  const activeSkill = ref("mining");
+  const activeSkill = ref("woodcutting");
   const skillNames = Object.keys(skills.value);
 
   return { skills, skillNames, activeSkill, changeActiveSkill };

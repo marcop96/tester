@@ -9,7 +9,7 @@ const store = useSkillsStore();
         <li
           v-for="name in store.skillNames"
           @click="store.changeActiveSkill(name)"
-          class="block transform origin-center font-bold hover:pointer-select"
+          class="block transform origin-center font-bold hover:cursor-pointer"
         >
           {{ name }}
         </li>
