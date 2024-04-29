@@ -20,5 +20,8 @@ export default function useSkills() {
     },
   });
 
-  return { skills };
+  const activeSkill = ref("mining");
+
+  const skillNames = Object.keys(skills.value);
+  return { skills, skillNames, activeSkill };
 }

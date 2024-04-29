@@ -1,30 +1,32 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import { Progress } from "../components/ui/progress";
 import { useInventory } from "../composable/useInventory";
-import type { Item } from "../types";
-import logs from "../data/woodcutting/logs";
 import useAction from "../composable/useAction";
 import InfoActionButton from "../components/ui/InfoActionButton.vue";
+import resources from "../data/resources.json";
+import useSkills from "../composable/useSkills";
 const { addItemToInventory, removeItemFromInventory, itemCount } =
   useInventory();
 const { runAction, inventory, progress, activeItem } = useAction();
+
+const { skills, skillNames, activeSkill } = useSkills();
 </script>
 
 <template>
   <div class="p-4 mx-auto">
     <div class="p-4 flex justify-center">
-      <!-- Display the progress bar for progress.one -->
       <Progress v-model="progress" class="w-4/5 h-10" />
     </div>
 
-    <div class="grid grid-cols-2 p-4">
+    <div class="grid grid-cols-3 p-4">
       <InfoActionButton
-        v-for="log in logs"
-        :key="log.id"
+        v-for="res in resources.filter((r) => r.skill === activeSkill)"
+        :key="res.id"
         action="chop"
-        :item="log"
+        :item="res"
         :activeItem="activeItem"
-        @click="runAction(log)"
+        @click="runAction(res)"
       ></InfoActionButton>
     </div>
   </div>
