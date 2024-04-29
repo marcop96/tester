@@ -1,9 +1,24 @@
 <script setup lang="ts">
-import type { Item } from "@/types";
-defineProps<{
+import type { Item, SkillName } from "@/types";
+const props = defineProps<{
   item: Item;
+  activeSkill: string | null;
   activeItem: Item | null;
 }>();
+
+const itemStatus = computed(() => {
+  if (props.activeItem) {
+    if (props.activeItem && props.activeItem.name === props.item.name) {
+      if (props.activeSkill === "woodcutting") {
+        return "Chopping";
+      } else if (props.activeSkill === "mining") {
+        return "Mining";
+      }
+    }
+  }
+
+  return "Waiting";
+});
 </script>
 
 <template>
@@ -25,9 +40,7 @@ defineProps<{
         :class="{
           'text-green-500': activeItem && activeItem.name === item.name,
         }"
-        >{{
-          activeItem && activeItem.name === item.name ? "Chopping" : "Waiting"
-        }}</span
+        >{{ itemStatus }}</span
       >
     </div>
   </div>
