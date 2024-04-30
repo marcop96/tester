@@ -13,11 +13,10 @@ const store = useSkillsStore();
 </script>
 
 <template>
-  <div class="p-4 mx-auto">
+  <div v-if="store.activeSkill !== 'inventory'" class="p-4 mx-auto">
     <div class="p-4 flex justify-center">
       <Progress v-model="progress" class="w-4/5 h-10" />
     </div>
-
     <div class="grid grid-cols-3 p-4">
       <InfoActionButton
         v-for="res in resources.filter((r) => r.skill === store.activeSkill)"
@@ -29,7 +28,7 @@ const store = useSkillsStore();
       ></InfoActionButton>
     </div>
   </div>
-  <div>
+  <div v-if="store.activeSkill === 'inventory'" class="p-4 mx-auto">
     Inventory:
     <ul>
       <li v-for="item in inventory" :key="item.id">

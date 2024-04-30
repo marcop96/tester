@@ -5,6 +5,14 @@ const store = useSkillsStore();
 <template>
   <div class="flex">
     <div class="h-screen w-1/5 bg-green-400 bg-opacity-75 p-4">
+      <h2
+        class="text-2xl font-bold"
+        @click="store.changeActiveSkill('inventory')"
+      >
+        Inventory
+      </h2>
+
+      <h2 class="text-2xl font-bold">Skills</h2>
       <ul>
         <li
           v-for="name in store.skillNames"
