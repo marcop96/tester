@@ -11,13 +11,16 @@ export interface Item {
   quantity?: number;
   exp?: number;
   difficulty?: number;
+  skill?: string;
 }
 
-export interface Skills {
+export interface Skill {
   [key: SkillName]: SkillProperties;
 }
 
 export interface SkillProperties {
   id: number;
+
 }
+
 export type SkillName = "woodcutting" | "mining" | "smithing";
