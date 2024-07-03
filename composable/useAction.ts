@@ -3,19 +3,19 @@ import { useInventory } from "./useInventory";
 const { inventory, addItemToInventory, checkForItemType } = useInventory();
 
 const activeItem = ref<Item | null>(null);
+const isRunningAction = ref(false);
 export default function useAction() {
+
   const progress = ref(0);
+
   async function runAction(item: Item, duration = 1000) {
+    if (isRunningAction.value) return;
     if (activeItem.value && activeItem.value.name === item.name) return;
     activeItem.value = item;
-
-    // If already chopping, return
-
     let currentProgress = 0;
-    // Check if the player has an axe in the inventory
-
     if (checkForItemType("axe")) {
       const interval = setInterval(() => {
+        isRunningAction.value = true;
         currentProgress += 1;
         if (currentProgress <= 100) {
           // Update the progress value
@@ -24,6 +24,7 @@ export default function useAction() {
           clearInterval(interval);
           // Reset the progress value
           progress.value = 0;
+          isRunningAction.value = false;
           // Find the selected wood item in the inventory
           const logItem = inventory.value.find(
             (i: Item) => i.name === `${item.name}`,
